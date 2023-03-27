@@ -1,36 +1,27 @@
-These are the C++ codes corresponds to the Inscrypt 2021 paper ``Revisit Two Memoryless State-Recovery Cryptanalysis Methods on A5/1''.
+These are the C++ codes corresponds to the IET submission (Extended version of the [Inscrypt 2021 paper of the same name](https://link.springer.com/chapter/10.1007/978-3-030-88323-2_10)) ``Revisit Two Memoryless State-Recovery Cryptanalysis Methods on A5/1''.
 To run the codes, [NTL](https://libntl.org/) should be installed in advance. 
 
-The macro settings at line 5-9 in ``main.cpp'' file corresponds to different 
-experiments. The default settings are as follows: 
-```cpp
-#define TEST 0
-#define MERGE 0
-#define GEN_GUESS_TABLE 0
-#define PRACTICAL_ATTACK 1
-#define DDT_GENERATE 0
+To compile the project, you may enter the run the following commands:
 ```
-In this setting, we are able to generate Table 1, 3, 4 of the paper. 
-
-Table 1, 3, 4 are to be generated respectively by commenting lines 510-512:
-For Table 1, use line 512:
-```cpp
-getFilterStrengthAtRound(1, round, testTime);
+git clone https://github.com/peterhao89/A51Attacks.git
+cd A51Attacks
+mkdir build
+cd build
+cmake ..
+make
 ```
-For Table 3, use line 510
-```cpp
-getFilterStrengthAtRoundAfter5GuessClocks(1, round, testTime);
+Then, you will acquire an binary file named ``ntlGuessDeterminA51`` for generating the data for computing Table 1, 2, 3, 6, 7 following the prompts.  
+For example, if we want verify Table 7 of the improved near collision attack, we only need to run as follows: 
 ```
-For Table 4, use line 511
-```cpp
-getFilterStrengthAtRoundAfter5(1, round, testTime);
-```
-
-To implement the CP-recovery phase for Zhang's near collision attack, modify lines 5-9 as
-```cpp
-#define TEST 0
-#define MERGE 1
-#define GEN_GUESS_TABLE 0
-#define PRACTICAL_ATTACK 0
-#define DDT_GENERATE 0
+ ./ntlGuessDeterminA51.exe
+Set Data Complexity x of 2^x (default x=10)
+30
+Data complexity 2^10
+Choose Experiment:
+1. Our S0-Recovery
+2. Our S1-Recovery
+3. Golic's Guess-and-Determine
+4. Zhang's Original Near Collision
+5. Improved Near Collision
+5
 ```

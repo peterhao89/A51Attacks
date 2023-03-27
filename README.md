@@ -1,7 +1,7 @@
-These are the C++ codes corresponding to the Inscrypt 2021 paper ``Revisit Two Memoryless State-Recovery Cryptanalysis Methods on A5/1''.
+These are the C++ codes corresponds to the Inscrypt 2021 paper ``Revisit Two Memoryless State-Recovery Cryptanalysis Methods on A5/1''.
 To run the codes, [NTL](https://libntl.org/) should be installed in advance. 
 
-The macro settings at line 5-9 in ``main.cpp'' file correspond to different 
+The macro settings at line 5-9 in ``main.cpp'' file corresponds to different 
 experiments. The default settings are as follows: 
 ```cpp
 #define TEST 0

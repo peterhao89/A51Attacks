@@ -1,0 +1,30 @@
+cmake_minimum_required (VERSION 3.5)
+
+project ("A51Attacks")
+
+
+#set(${BOOST_ROOT} $ENV{BOOST_ROOT})
+#find_package(Boost 1.76.0 REQUIRED COMPONENTS serialization filesystem program_options iostreams)
+
+
+
+
+FIND_PACKAGE( OpenMP REQUIRED) 
+if(OPENMP_FOUND) 
+message("OPENMP FOUND") 
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}") 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}") 
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OpenMP_EXE_LINKER_FLAGS}") 
+set(CMAKE_SHARE_LINKER_FLAGS "${CMAKE_SHARE_LINKER_FLAGS} ${OpenMP_SHARE_LINKER_FLAGS}") 
+endif()
+
+
+set(CMAKE_CXX_STANDARD 14)
+#.exe
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+#.so
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+#.a
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+add_subdirectory ("Utils")
+add_subdirectory ("src")

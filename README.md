@@ -45,3 +45,4 @@ Choose Experiment:
 5. Improved Near Collision
 5
 ```
+The data will be stored in a file named ``RoundFilterEval.txt`` which can be open with Excel by taking ``;'' as the column separator. 
